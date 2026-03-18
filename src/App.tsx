@@ -61,6 +61,51 @@ const QUESTIONS: Question[] = [
       { label: "Bicara dengan tembok", points: { femboy: 0, normal: 0, abnormal: 10 } },
     ],
   },
+  {
+    id: 6,
+    text: "Apa jenis sepatu favoritmu?",
+    options: [
+      { label: "Thigh High Boots", points: { femboy: 10, normal: 0, abnormal: 0 } },
+      { label: "Sneakers", points: { femboy: 0, normal: 10, abnormal: 0 } },
+      { label: "Kaki telanjang", points: { femboy: 0, normal: 0, abnormal: 10 } },
+    ],
+  },
+  {
+    id: 7,
+    text: "Bagaimana reaksimu saat dipanggil 'imut'?",
+    options: [
+      { label: "Malu-malu senang", points: { femboy: 10, normal: 0, abnormal: 0 } },
+      { label: "Biasa saja", points: { femboy: 0, normal: 10, abnormal: 0 } },
+      { label: "Marah tanpa alasan", points: { femboy: 0, normal: 0, abnormal: 10 } },
+    ],
+  },
+  {
+    id: 8,
+    text: "Apa warna favoritmu?",
+    options: [
+      { label: "Pink / Pastel", points: { femboy: 10, normal: 0, abnormal: 0 } },
+      { label: "Biru / Hitam", points: { femboy: 0, normal: 10, abnormal: 0 } },
+      { label: "Warna infra merah", points: { femboy: 0, normal: 0, abnormal: 10 } },
+    ],
+  },
+  {
+    id: 9,
+    text: "Apa makanan favoritmu?",
+    options: [
+      { label: "Strawberry Cake", points: { femboy: 10, normal: 0, abnormal: 0 } },
+      { label: "Nasi Goreng", points: { femboy: 0, normal: 10, abnormal: 0 } },
+      { label: "Batu kerikil", points: { femboy: 0, normal: 0, abnormal: 10 } },
+    ],
+  },
+  {
+    id: 10,
+    text: "Bagaimana caramu menyapa teman?",
+    options: [
+      { label: "Nyaa~ / Halo!", points: { femboy: 10, normal: 0, abnormal: 0 } },
+      { label: "Woi! / Halo", points: { femboy: 0, normal: 10, abnormal: 0 } },
+      { label: "Mengeram", points: { femboy: 0, normal: 0, abnormal: 10 } },
+    ],
+  },
 ];
 
 export default function App() {
@@ -70,8 +115,7 @@ export default function App() {
 
   const handleAnswer = (points: { femboy: number; normal: number; abnormal: number }) => {
     setScores(prev => ({
-      // Prank logic: Add a massive hidden bonus to femboy score on every answer
-      femboy: prev.femboy + points.femboy + 100, 
+      femboy: prev.femboy + points.femboy, 
       normal: prev.normal + points.normal,
       abnormal: prev.abnormal + points.abnormal,
     }));
@@ -190,14 +234,6 @@ export default function App() {
               <div className="text-center space-y-2">
                 <h2 className="text-5xl font-black uppercase italic tracking-tighter">Hasil Test</h2>
                 <p className="text-xs font-bold uppercase tracking-widest opacity-40">Berdasarkan jawabanmu</p>
-                <motion.p 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  className="text-[10px] font-black text-[#FF6321] uppercase tracking-[0.3em] animate-pulse"
-                >
-                  ⚠️ Warning: Femboy Energy Detected ⚠️
-                </motion.p>
               </div>
 
               <div className="space-y-8">
